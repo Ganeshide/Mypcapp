@@ -1,0 +1,72 @@
+<form id="dataForm">
+    <div class="form-group">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone">
+    </div>
+
+    <div class="form-group">
+        <label for="company">Company/Organization</label>
+        <input type="text" id="company" name="company">
+    </div>
+
+    <div class="form-group">
+        <label for="message">Message/Comments</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+    </div>
+
+    <button type="submit" id="submitBtn">
+        <span id="submitText">Submit Data</span>
+        <span id="loadingSpinner" class="spinner" style="display: none;">Saving...</span>
+    </button>
+</form>
+
+<script>
+    // 🔗 आपके Google Apps Script Web App का लिंक
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzjZ-VlC5tFy4294tgECnubw_Q4t5NEuHr9_GsvICt4lxn4-XQNs-5trPFlujpYJGlG4Q/exec";
+
+    const form = document.getElementById("dataForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const submitText = document.getElementById("submitText");
+    const loadingSpinner = document.getElementById("loadingSpinner");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // Loading state ON
+        submitBtn.disabled = true;
+        submitText.style.display = "none";
+        loadingSpinner.style.display = "inline";
+
+        try {
+            await fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            alert("✅ Data saved successfully!");
+            form.reset();
+        } catch (err) {
+            alert("❌ Error: " + err.message);
+        }
+
+        // Loading state OFF
+        submitBtn.disabled = false;
+        submitText.style.display = "inline";
+        loadingSpinner.style.display = "none";
+    });
+</script>
