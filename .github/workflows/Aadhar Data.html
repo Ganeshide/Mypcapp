@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gram Panchayat Mal Matta Dharak</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 10px;
+}
+
+.container {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #219150;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Gram Panchayat<br>Mal-Matta Dharak Form</h2>
+
+    <label>Gram Panchayat Name</label>
+    <input type="text" placeholder="Gram Panchayat ka Naam">
+
+    <label>Mal-Matta Dharak ka Naam</label>
+    <input type="text" placeholder="Owner ka Naam">
+
+    <label>Property / Ghar Number</label>
+    <input type="text" placeholder="Property Number">
+
+    <label>Ward / Gaav</label>
+    <input type="text" placeholder="Ward / Gaav ka Naam">
+
+    <label>Mobile Number</label>
+    <input type="tel" placeholder="10 Digit Mobile Number">
+
+    <label>Property Type</label>
+    <select>
+        <option>Residential</option>
+        <option>Commercial</option>
+        <option>Open Plot</option>
+    </select>
+
+    <label>Total Area (Sq. Ft.)</label>
+    <input type="number" placeholder="Area">
+
+    <label>Remarks</label>
+    <textarea rows="3" placeholder="Additional Details"></textarea>
+
+    <button>Submit</button>
+</div>
+
+</body>
+</html>
